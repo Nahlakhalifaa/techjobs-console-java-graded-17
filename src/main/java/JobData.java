@@ -97,6 +97,7 @@ public class JobData {
             for (HashMap.Entry<String, String> entry : row.entrySet()) {
                 if (entry.getValue().toLowerCase().contains(value.toLowerCase())) {
                     jobs.add(row);
+                    break;
                 }
             }
             }
