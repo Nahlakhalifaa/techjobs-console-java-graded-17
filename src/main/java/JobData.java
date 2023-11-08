@@ -7,6 +7,7 @@ import java.io.IOException;
 import java.io.Reader;
 import java.util.*;
 
+
 /**
  * Created by LaunchCode
  */
@@ -92,18 +93,24 @@ public class JobData {
         loadData();
 
         // TODO - implement this method
-        ArrayList<HashMap<String, String>> jobs = new ArrayList<>();
-        for (HashMap<String, String> row : allJobs) {
-            for (HashMap.Entry<String, String> entry : row.entrySet()) {
-                if (entry.getValue().toLowerCase().contains(value.toLowerCase())) {
-                    jobs.add(row);
+
+        ArrayList<HashMap<String, String>>results=new ArrayList<>();
+
+        for (int i = 0; i < allJobs.size(); i++) {
+            HashMap<String, String> jobValue = allJobs.get(i);
+
+            for (String valueJobs : jobValue.values()) {
+                // System.out.println(valueJobs);
+                if(valueJobs.toUpperCase().contains(value.toUpperCase())){
+                    results.add(jobValue);
                     break;
                 }
+
             }
-            }
+        }
 
 
-        return jobs;
+        return results;
 
     }
 
